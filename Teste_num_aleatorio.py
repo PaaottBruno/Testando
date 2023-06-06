@@ -1,30 +1,34 @@
 from random import randint
 import os
-dado = {}
 cont = 0
 
 while True:
     cont = cont + 1
-    
-    dado = input("\nd4 = dado de 4 lados\nd6 = dado de 6 lados\
-    \nd8 = dado de 8 lados\nd10 = dado de 10 lados\nd12 = dado de 12 lados\
-    \nd20 = dado de 20 lados\nd100 = dado de 100 lados\
-    \nEscolha o dados desejado: ")
-    
-    if dado not in 'd4' and dado not in 'd6' and dado not in 'd8' and\
-    dado not in 'd10' and dado not in 'd12' and dado not in 'd20' and dado not in 'd100':
+    try:
+        dado = int(input("\nd4 = dado de 4 lados\nd6 = dado de 6 lados\
+        \nd8 = dado de 8 lados\nd10 = dado de 10 lados\nd12 = dado de 12 lados\
+        \nd20 = dado de 20 lados\nd100 = dado de 100 lados\
+        \nEscolha o dados desejado: d"))
+    except:
+        os.system('cls')
+        print("\nUse Somente Numeros\n")
+        continue
+    if dado != 4 and dado != 6 and dado != 8 and dado != 10 and dado != 12 and dado != 20 and dado != 100:
+        os.system('cls')
         print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
         continue
    
     try:
         quant = int(input("Quantas vezes vc vai rola esse dado: "))
-        
     except ValueError:
-
-        print("\nSomente Numeros\n")
-
-    dado = str(dado)
-    if dado == 'd4':
+        os.system('cls')
+        print("\nUse Somente Numeros\n")
+    
+    if quant < 0:
+        os.system('cls')
+        print("\nUsar Somente Numeros Positivos\n")
+        continue
+    if dado == 4:
         d4 = (randint(1, 4))
         os.system('cls')
         print(4*"=-="+5*" ")
@@ -32,7 +36,7 @@ while True:
         print(4*"=-="+5*" ")
         dano = quant*d4
 
-    elif dado == 'd6':
+    elif dado == 6:
         d6 = (randint(1, 6))
         os.system('cls')
         print(4*"=-="+5*" ")
@@ -40,7 +44,7 @@ while True:
         print(4*"=-="+5*" ")
         dano = quant*d6
 
-    elif dado == 'd8':
+    elif dado == 8:
         d8 = (randint(1, 8))
         os.system('cls')
         print(4*"=-="+5*" ")
@@ -48,13 +52,13 @@ while True:
         print(4*"=-="+5*" ")
         dano = quant*d8
 
-    elif dado == 'd10':
+    elif dado == 10:
         d10 = (randint(1, 10))
         os.system('cls')
         print(" "*4,quant*d10)
         dano = quant*d10
 
-    elif dado == 'd12':
+    elif dado == 12:
         d12 = (randint(1, 12))
         os.system('cls')
         print(4*"=-="+5*" ")
@@ -62,7 +66,7 @@ while True:
         print(4*"=-="+5*" ")
         dano = quant*d12
 
-    elif dado == 'd20':
+    elif dado == 20:
         d20 = (randint(1, 20))
         os.system('cls')
         print(4*"=-="+5*" ")
@@ -70,7 +74,7 @@ while True:
         print(4*"=-="+5*" ")
         dano = quant*d20
 
-    elif dado == 'd100':
+    elif dado == 100:
         d100 = (randint(1, 100))
         os.system('cls')
         print(4*"=-="+5*" ")
@@ -144,5 +148,5 @@ while True:
     #     print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
     #     continue
 
-print(f"O seu dano foi {dano}")
+    # print(f"O seu dano foi {dano}")
 
