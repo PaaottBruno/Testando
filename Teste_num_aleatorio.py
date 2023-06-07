@@ -1,23 +1,30 @@
 from random import randint
 import os
-cont = 0
+ladd_ataque =[]
+ladd_dano = []
+ld4 = []
+ld6 = []
+ld8 = []
+ld10 = []
+ld12 = []
+ld20 = []
+ld100 = []
 
 while True:
-    cont = cont + 1
-    try:
+    try: 
+        
         dado = int(input("\nd4 = dado de 4 lados\nd6 = dado de 6 lados\
         \nd8 = dado de 8 lados\nd10 = dado de 10 lados\nd12 = dado de 12 lados\
         \nd20 = dado de 20 lados\nd100 = dado de 100 lados\
-        \nEscolha o dados desejado: d"))
+        \nEscolha o dados desejado: d"))   
+
+        if dado != 4 and dado != 6 and dado != 8 and dado != 10 and dado != 12 and dado != 20 and dado != 100:
+            print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
+            continue
     except:
         os.system('cls')
-        print("\nUse Somente Numeros\n")
+        print("\nSomente Numeros\n")
         continue
-    if dado != 4 and dado != 6 and dado != 8 and dado != 10 and dado != 12 and dado != 20 and dado != 100:
-        os.system('cls')
-        print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
-        continue
-   
     try:
         quant = int(input("Quantas vezes vc vai rola esse dado: "))
     except ValueError:
@@ -30,123 +37,93 @@ while True:
         continue
     if dado == 4:
         d4 = (randint(1, 4))
+        print("\nSomente Numeros\n")
+        continue
+    try:
+            
+        if dado == 4:
+            d4 = quant*(randint(1, 4))
+            ld4.append(d4)
+            os.system('cls')
+            print(4*"=-="+5*" ")
+            print(" "*4,d4)
+            print(4*"=-="+5*" ")
+            os.system('pause')
+            os.system('cls')
+            
+
+        elif dado == 6:
+            d6 = quant*(randint(1, 6))
+            ld6.append(d6)
+            os.system('cls')
+            print(4*"=-="+5*" ")
+            print(" "*4,d6)
+            print(4*"=-="+5*" ")
+            os.system('pause')
+            os.system('cls')
+            
+
+        elif dado == 8:
+            d8 = quant*(randint(1, 8))
+            ld8.append(d8)
+            os.system('cls')
+            print(4*"=-="+5*" ")
+            print(" "*4,d8)
+            print(4*"=-="+5*" ")
+            os.system('pause')
+            os.system('cls')
+            
+
+        elif dado == 10:
+            d10 = quant*(randint(1, 10))
+            ld10.append(d10)
+            os.system('cls')
+            print(" "*4,qd10)
+            os.system('pause')
+            os.system('cls')
+            
+
+        elif dado == 12:
+            d12 = quant*(randint(1, 12))
+            ld12.append(d12)
+            os.system('cls')
+            print(4*"=-="+5*" ")
+            print(" "*4,d12)
+            print(4*"=-="+5*" ")
+            os.system('pause')
+            os.system('cls')
+           
+
+        elif dado == 20:
+            d20 = quant*(randint(1, 20))
+            ld20.append(d20)
+            os.system('cls')
+            print(4*"=-="+5*" ")
+            print(" "*4,d20)
+            print(4*"=-="+5*" ")
+            os.system('pause')
+            os.system('cls')
+            
+
+        elif dado == 100:
+            d100 = quant*(randint(1, 100))
+            ld100.append(d100)
+            os.system('cls')
+            print(4*"=-="+5*" ")
+            print(" "*4,d100)
+            print(4*"=-="+5*" ")
+            os.system('pause')
+            os.system('cls')
+              
+    except:
         os.system('cls')
-        print(4*"=-="+5*" ")
-        print(" "*4,quant*d4)
-        print(4*"=-="+5*" ")
-        dano = quant*d4
+        print("\nUsar Somente Numeros\n")
+        continue
 
-    elif dado == 6:
-        d6 = (randint(1, 6))
-        os.system('cls')
-        print(4*"=-="+5*" ")
-        print(" "*4,quant*d6)
-        print(4*"=-="+5*" ")
-        dano = quant*d6
+    add_dano = int(input("Adicionais de dano: "))
+    ladd_dano.append(add_dano)
 
-    elif dado == 8:
-        d8 = (randint(1, 8))
-        os.system('cls')
-        print(4*"=-="+5*" ")
-        print(" "*4,quant*d8)
-        print(4*"=-="+5*" ")
-        dano = quant*d8
+    add_ataque = int(input("Adicionais de ataque: "))
+    ladd_ataque.append(add_ataque)
 
-    elif dado == 10:
-        d10 = (randint(1, 10))
-        os.system('cls')
-        print(" "*4,quant*d10)
-        dano = quant*d10
-
-    elif dado == 12:
-        d12 = (randint(1, 12))
-        os.system('cls')
-        print(4*"=-="+5*" ")
-        print(" "*4,quant*d12)
-        print(4*"=-="+5*" ")
-        dano = quant*d12
-
-    elif dado == 20:
-        d20 = (randint(1, 20))
-        os.system('cls')
-        print(4*"=-="+5*" ")
-        print(" "*4,quant*d20)
-        print(4*"=-="+5*" ")
-        dano = quant*d20
-
-    elif dado == 100:
-        d100 = (randint(1, 100))
-        os.system('cls')
-        print(4*"=-="+5*" ")
-        print(" "*4,quant*d100)
-        print(4*"=-="+5*" ")
-        dano = quant*d100
-        
-
-
-    
-    # if dado not in 'd4' and dado not in 'd6' and dado not in 'd8' and\
-    # dado not in 'd10' and dado not in 'd12' and dado not in 'd20' and dado not in 'd100':
-    #     print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
-    #     continue
-
-    # # dado = int(dado)
-
-    # if dado >= 0:
-    #     print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
-    #     continue
-
-    # quant = int(input("Quantas vezes vc vai rola esse dado: "))
-    # dado = str(dado)
-    # if quant == 0:
-    #     print("\nNão e possivel rola '0' vezes o dado\nPor Favor Tente Novamente.\n")
-    #     continue
-
-    # if dado == 'd4':
-    #     d4 = (randint(1, 4))
-    #     os.system('cls')
-    #     print(quant*d4,'\n')
-    #     dano = quant*d4
-
-    # elif dado == 'd6':
-    #     d6 = (randint(1, 6))
-    #     os.system('cls')
-    #     print(quant*d6,'\n')
-    #     dano = quant*d6
-
-    # elif dado == 'd8':
-    #     d8 = (randint(1, 8))
-    #     os.system('cls')
-    #     print(quant*d8,'\n')
-    #     dano = quant*d8
-
-    # elif dado == 'd10':
-    #     d10 = (randint(1, 10))
-    #     os.system('cls')
-    #     print(quant*d10,'\n')
-    #     dano = quant*d10
-
-    # elif dado == 'd12':
-    #     d12 = (randint(1, 12))
-    #     os.system('cls')
-    #     print(quant*d12,'\n')
-    #     dano = quant*d12
-
-    # elif dado == 'd20':
-    #     d20 = (randint(1, 20))
-    #     os.system('cls')
-    #     print(quant*d20,'\n')
-    #     dano = quant*d20
-
-    # elif dado == 'd100':
-    #     d100 = (randint(1, 100))
-    #     os.system('cls')
-    #     print(quant*d100,'\n')
-    #     dano = quant*d100
-
-    # if dado != 0:        # ajustar bug que possivel usuario pode achar.
-    #     print("\nO dado escolhido não existe\nPor Favor Tente Novamente.\n")
-    #     continue
-
-    # print(f"O seu dano foi {dano}")
-
+    print(d4+add_dano)
