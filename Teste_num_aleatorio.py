@@ -35,10 +35,7 @@ while True:
         os.system('cls')
         print("\nUsar Somente Numeros Positivos\n")
         continue
-    if dado == 4:
-        d4 = (randint(1, 4))
-        print("\nSomente Numeros\n")
-        continue
+   
     try:
             
         if dado == 4:
