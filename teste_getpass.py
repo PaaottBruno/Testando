@@ -1,39 +1,43 @@
 import os
 from getpass import getpass
 
-def linha():
-    print(15*"=-")
-
-
 lnome = []
 lcpf = []
 lsexo = []
 lsenha = []
+lcont = []
 
+def linha_cada():
+    print(15*"=-")
+def linha():
+    print(8*"=+=")
+def linha2():
+    print(10*"--")
 
-cont = 0
-while True:
-    cont += 1
-   
-    try:
-        menu = int(input("1 - cadastro\n2 - Consulta\n0 - Sair\n>>> "))
-    except:
-        print("Use apenas numero.")
-        break
-    os.system('cls')
+def cadastro(cont):
+    if cont == 2:
+        menu()
+    while True:
+        lcont.append(cont)
 
+        linha_cada()
+        print(f"Numero do cadastro: {lcont[cont-1]}")
+        linha_cada()
 
-    if menu == 1:
+        nome = input("\nNome: ")
         linha()
-        print(f"O seu cadastro e o {cont}")
-
-
-        nome = input("Nome: ")
         sexo = input("sexo: ")
-
-
+        linha()
+        break
+         
+    while True:
         try:
             cpf = int(input("cpf: "))
+            tcpf = str(cpf)
+            arm = len(tcpf)
+            if arm < 11:
+                print("O cpf deve conter 10 numeros\nTente novamente")
+                continue
         except:
             print("Use apenas numeros.")
             continue
@@ -41,50 +45,93 @@ while True:
             lnome.append(nome)
             lcpf.append(cpf)
             lsexo.append(sexo)
-       
+        break
+    
+    os.system('cls')
+    while True:
+        linha()
+        senha = getpass("Senha: ")
+        linha()
+        confirm_senha = getpass("Confirmar a senha: ")
+        linha()
 
-        os.system('cls')
-        while True:
-            senha = getpass("Senha: ")
-            confirm_senha = getpass("Confirmar a senha: ")
+        lsenha.append(senha)
+        if senha != confirm_senha:
+            print("As senhas não são iguais.\nTente Novamente")
+            senha = None
+            confirm_senha = None
+            del lsenha[cont-1]
+            os.system('cls')
 
+        elif senha == confirm_senha:
+            linha2()
+            print("\nCadastro confirmado com sucesso.")
+            linha2()
+            os.system('pause')
+            os.system('cls')
+            break
+        
+def consulta():
+    while True:
+        try:
+            busca = int(input("Digite o numero do cadastro: "))
+        except:
+            print("Usar apenas numeros.")
 
-            lsenha.append(senha)
-            if senha != confirm_senha:
-                print("As senhas não são iguais.\nTente Novamente")
-                senha = None
-                confirm_senha = None
+        try:
 
-            elif senha == confirm_senha:
-                print("Cadastro confirmado com sucesso.")
-                os.system('pause')
+            print(lnome[busca-1],f" Cadastro {busca}")
+            a = lsenha[busca-1]
+            cs = getpass("Digite a senha: ")
+            os.system("pause")
+
+            if cs != a:
+                print("Senha incorreta!!\nTente Novamente\n")
                 break
 
-    elif menu == 2:
-        try:
-            busca = int(input("busca: "))
-        except:
-            print("Use apenas numeros.")
-
-
-        print(lnome[busca-1])
-        a = lsenha[busca-1]
-        cs = input("Digite a senha: ")
-        os.system("pause")
-
-
-        if cs != a:
-            print("Senha incorreta!!")
-
-
-        elif cs == a:
-            print("Senha correta!!")
-            print(lnome[busca-1],"\n",lcpf[busca-1],"\n",lsexo[busca-1])
+            elif cs == a:
+                
+                print("\nSenha correta!!")
+                linha2()
+                print("\n",lnome[busca-1],"\n",lcpf[busca-1],"\n",lsexo[busca-1].upper())
+                linha2()
+                os.system('pause')
+                os.system('cls')
+                break
+        except UnboundLocalError:
+            print("\nNão existe nenhum cadastro para consultar.")
             break
 
+        except IndexError:
+            print("\nNão existe nenhum cadastro para consultar.")
+            break
 
-    elif menu == 0:
-        print("Programa finalizado.")
-        break
+def menu():
+    
+    while True:
+        
+        try:
+            print(8*"=-","Seja Bem vindo ao programa getpass()","-="*8,"\n")
+            # print(5*"--","Um programa feito para ensinar como usar getpass","--"*5)
+            menu = int(input("\n1 - Cadastro\n2 - Consulta\n0 - Sair\n>>> "))
+        except:
+            print("\nUse apenas numero.\n")
+            continue
+
+        os.system('cls')
 
 
+        if menu == 1:
+            cont = 0
+            while True:
+                cont += 1
+                cadastro(cont)
+
+        elif menu == 2:
+            consulta()
+
+        if menu == 0:
+            print("\nPrograma finalizado.")
+            break
+
+menu()
