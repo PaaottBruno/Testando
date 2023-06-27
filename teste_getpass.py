@@ -17,14 +17,15 @@ def linha2():
 def cadastro(cont):
     if cont == 2:
         menu()
+
     while True:
         lcont.append(cont)
-
+        
         linha_cada()
-        print(f"Numero do cadastro: {lcont[cont-1]}")
+        print(f"Numero do cadastro: {sum(lcont)}")
         linha_cada()
 
-        nome = input("\nNome: ")
+        nome = input("Nome: ")
         linha()
         sexo = input("sexo: ")
         linha()
@@ -32,10 +33,15 @@ def cadastro(cont):
          
     while True:
         try:
-            cpf = int(input("cpf: "))
-            tcpf = str(cpf)
-            arm = len(tcpf)
-            if arm < 11 or arm > 11:
+            cpf = input("cpf: ")
+            arm1 = cpf.isdigit()
+            print(arm)
+
+            if not arm1:
+                print("Usar apenas numeros.")
+            arm = int(arm)
+            print(arm)
+            if cpf != 11:
                 print("O cpf deve conter 11 numeros\nTente novamente")
                 continue
         except:
@@ -70,7 +76,7 @@ def cadastro(cont):
             os.system('pause')
             os.system('cls')
             break
-        
+            
 def consulta():
     while True:
         try:
@@ -80,7 +86,7 @@ def consulta():
 
         try:
 
-            print(lnome[busca-1],f" Cadastro {busca}")
+            print(lnome[busca-1],f"| Cadastro {busca}")
             a = lsenha[busca-1]
             cs = getpass("Digite a senha: ")
             os.system("pause")
@@ -106,8 +112,10 @@ def consulta():
             print("\nNão existe nenhum cadastro para consultar.")
             break
 
+def parar():
+    quit
+
 def menu():
-    
     while True:
         
         try:
@@ -127,9 +135,9 @@ def menu():
 
         elif menu == 2:
             consulta()
-
+        
         elif menu == 0:
             print("\nPrograma finalizado.")
-            break
-    
+            parar()
+        
 menu()
