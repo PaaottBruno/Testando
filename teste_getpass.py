@@ -35,8 +35,8 @@ def cadastro(cont):
             cpf = int(input("cpf: "))
             tcpf = str(cpf)
             arm = len(tcpf)
-            if arm < 11:
-                print("O cpf deve conter 10 numeros\nTente novamente")
+            if arm < 11 or arm > 11:
+                print("O cpf deve conter 11 numeros\nTente novamente")
                 continue
         except:
             print("Use apenas numeros.")
@@ -65,7 +65,7 @@ def cadastro(cont):
 
         elif senha == confirm_senha:
             linha2()
-            print("\nCadastro confirmado com sucesso.")
+            print("Cadastro confirmado com sucesso.")
             linha2()
             os.system('pause')
             os.system('cls')
@@ -112,14 +112,12 @@ def menu():
         
         try:
             print(8*"=-","Seja Bem vindo ao programa getpass()","-="*8,"\n")
-            # print(5*"--","Um programa feito para ensinar como usar getpass","--"*5)
             menu = int(input("\n1 - Cadastro\n2 - Consulta\n0 - Sair\n>>> "))
         except:
             print("\nUse apenas numero.\n")
             continue
-
+        
         os.system('cls')
-
 
         if menu == 1:
             cont = 0
@@ -130,8 +128,8 @@ def menu():
         elif menu == 2:
             consulta()
 
-        if menu == 0:
+        elif menu == 0:
             print("\nPrograma finalizado.")
             break
-
+    
 menu()
