@@ -34,14 +34,8 @@ def cadastro(cont):
     while True:
         try:
             cpf = input("cpf: ")
-            arm1 = cpf.isdigit()
-            print(arm)
-
-            if not arm1:
-                print("Usar apenas numeros.")
-            arm = int(arm)
-            print(arm)
-            if cpf != 11:
+            arm = len(cpf)
+            if arm != 11:
                 print("O cpf deve conter 11 numeros\nTente novamente")
                 continue
         except:
@@ -99,7 +93,7 @@ def consulta():
                 
                 print("\nSenha correta!!")
                 linha2()
-                print("\n",lnome[busca-1],"\n",lcpf[busca-1],"\n",lsexo[busca-1].upper())
+                print("\nNome: ",lnome[busca-1],"\nCPF: ",lcpf[busca-1],"\nSexo: ",lsexo[busca-1].upper())
                 linha2()
                 os.system('pause')
                 os.system('cls')
@@ -112,32 +106,31 @@ def consulta():
             print("\nNão existe nenhum cadastro para consultar.")
             break
 
-def parar():
-    quit
-
 def menu():
     while True:
         
         try:
             print(8*"=-","Seja Bem vindo ao programa getpass()","-="*8,"\n")
             menu = int(input("\n1 - Cadastro\n2 - Consulta\n0 - Sair\n>>> "))
+            os.system('cls')
         except:
             print("\nUse apenas numero.\n")
+            os.system('pause')
+            os.system('cls')
             continue
-        
-        os.system('cls')
+        else:
+            if menu == 1:
+                cont = 0
+                while True:
+                    cont += 1
+                    cadastro(cont)
+                    break
 
-        if menu == 1:
-            cont = 0
-            while True:
-                cont += 1
-                cadastro(cont)
-
-        elif menu == 2:
-            consulta()
-        
-        elif menu == 0:
-            print("\nPrograma finalizado.")
-            parar()
-        
+            elif menu == 2:
+                consulta()
+            
+            elif menu == 0:
+                print("\nPrograma finalizado.")
+                break
+            
 menu()
