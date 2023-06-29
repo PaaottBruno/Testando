@@ -74,7 +74,7 @@ def cadastro(cont):    #   função cadastro, faz o cadastro de uma pessoa.
 def consulta():
     while True:
         try:
-            busca = int(input("Digite o numero do cadastro: "))
+            busca = int(input("Digite o numero do cadastro: "))  # digitar o numero do cadastro imformado no inicio do cadastro
         except:
             print("Usar apenas numeros.")
             os.system('pause')
@@ -82,19 +82,19 @@ def consulta():
             continue
         try:
 
-            print(lnome[busca-1],f"| Cadastro {busca}")
+            print(lnome[busca-1],f"| Cadastro {busca}")     # busca o nome do cadastro e qual cadastro
             a = lsenha[busca-1]
             cs = getpass("Digite a senha: ")
             os.system("pause")
 
-            if cs != a:
+            if cs != a:     # confirma se a senha esta incorreta
                 os.system('cls')
                 print("\nSenha incorreta!!\nTente Novamente\n")
                 os.system('pause')
                 os.system('cls')
                 break
 
-            elif cs == a:
+            elif cs == a:   # confirma se a senha esta correta
                 
                 print("\nSenha correta!!")
                 linha2()
@@ -103,7 +103,7 @@ def consulta():
                 os.system('pause')
                 os.system('cls')
                 break
-        except UnboundLocalError:
+        except UnboundLocalError:       
             print("\nNão existe nenhum cadastro para consultar.")
             os.system('pause')
             os.system('cls')
@@ -119,7 +119,7 @@ def menu():
     while True:
         
         try:
-            print("\n\n",8*"=-","Seja Bem vindo ao programa getpass()","-="*8,"\n")
+            print("\n\n",8*"=-","Seja Bem vindo ao programa getpass()","-="*8,"\n")     # Menu 
             menu = int(input("\n1 - Cadastro\n2 - Consulta\n0 - Sair\n>>> "))
 
             os.system('cls')
