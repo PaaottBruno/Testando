@@ -12,3 +12,6 @@ user = getpass.getuser()
 
 print(f"Meu nome é {user}")
 
+import pynput
+
+a = pynput("Digite: ")
