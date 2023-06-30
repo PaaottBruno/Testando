@@ -22,13 +22,14 @@
 
 # user = getpass.getpass()
 
-import getpass
+# import getpass
   
-user = getpass.getuser()
+# user = getpass.getuser()
 
-print(f"Meu nome é {user}")
+# print(f"Meu nome é {user}")
 
 import pwinput
 
 a = pwinput.pwinput("Digite: ")
 print(a)
+
