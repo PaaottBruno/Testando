@@ -25,13 +25,10 @@
 import getpass
   
 user = getpass.getuser()
-<<<<<<< Updated upstream
 
 print(f"Meu nome é {user}")
 
-import pynput
+import pwinput
 
-a = pynput("Digite: ")
-=======
-print("\n\n\n",user,"\n\n\n")
->>>>>>> Stashed changes
+a = pwinput.pwinput("Digite: ")
+print(a)
