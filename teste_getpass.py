@@ -1,5 +1,6 @@
 import os
 from getpass import getpass
+from pwinput import pwinput
 
 lnome = []
 lcpf = []
@@ -50,9 +51,9 @@ def cadastro(cont):    #   função cadastro, faz o cadastro de uma pessoa.
     os.system('cls')
     while True:
         linha()
-        senha = getpass("Senha: ")      # getpass oculta a 'senha' que o usuario escreve
+        senha = pwinput("Senha: ")      # getpass oculta a 'senha' que o usuario escreve
         linha()
-        confirm_senha = getpass("Confirmar a senha: ")
+        confirm_senha = pwinput("Confirmar a senha: ")
         linha()
 
         lsenha.append(senha)
@@ -84,7 +85,7 @@ def consulta():
 
             print(lnome[busca-1],f"| Cadastro {busca}")     # busca o nome do cadastro e qual cadastro
             a = lsenha[busca-1]
-            cs = getpass("Digite a senha: ")
+            cs = pwinput("Digite a senha: ")
             os.system("pause")
 
             if cs != a:     # confirma se a senha esta incorreta
