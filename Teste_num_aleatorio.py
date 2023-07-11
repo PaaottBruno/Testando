@@ -75,7 +75,7 @@ while True:
             d10 = quant*(randint(1, 10))
             ld10.append(d10)
             os.system('cls')
-            print(" "*4,qd10)
+            print(" "*4,d10)
             os.system('pause')
             os.system('cls')
             
