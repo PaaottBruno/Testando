@@ -1,39 +1,65 @@
-from main import*
 import os
+class Usuario():
 
-while True:
-    opcao = input("1 - Cadastro\n2 - Relatorio do cadastro\n3 - Calculadora\n4 - Lanchonete\n>>> ")
+    def __init__(self,nome,idade,cpf,email,endereco):
 
-    print(8*"=-","Digite seus dados","=-"*8)
+        self.nome = nome
+        self.idade = idade
+        self.cpf = cpf
+        self.email = email
+        self.endereco = endereco
 
-    nome = input("Nome: ")
-    try:
+    def relatorio(self):
+        print(f"Nome: {self.nome}\nIdade: {self.idade}\nCPF: {self.cpf}\nEmail:{self.email}\nEndereço: {self.endereco}")
+    
+    # def calculadora(self):
+    #     while True:
+    #         print(8*"=-","Seja Bem vindo a calculadora","=-"*8)
+    #         op = input("1- Mais\n2- Menos\n3- Vezes\n4- Divisão\n5- Raiz Quadrada\nEscreva o nome ou numero da operação que deseja: ")
 
-        idade = int(input("Idade: "))
-        cpf = int(input("CPF: "))
+    #         op = op.upper()
 
-    except ValueError:
-        print("Use apenas numeros")
-        os.system("pause")
-        os.system("cls")
-        continue
+    #         if op == "MAIS" or op == "1":
+    #             valor1 = float(input("Digite o primeiro valor: "))
+    #             valor2 = float(input("Digite o segundo valor: "))
+    #             total = valor1 + valor2
+    #             print(f"O valor de {valor1} + {valor2} = {total}")
+    #             os.system("pause")
+    #             os.system("cls")
 
-    email = input("Email: ")
-    endereco = input("Enderço: ")
+    #         elif op == "MENOS" or op == "2":
+    #             valor1 = float(input("Digite o primeiro valor: "))
+    #             valor2 = float(input("Digite o segundo valor: "))
+    #             total = valor1 - valor2
+    #             print(f"O valor de {valor1} - {valor2} = {total}")
+    #             os.system("pause")
+    #             os.system("cls")
 
-    u1 = Usuario(nome,idade,cpf,email,endereco)
+    #         elif op == "VESEZ" or op == "3":
+    #             valor1 = float(input("Digite o primeiro valor: "))
+    #             valor2 = float(input("Digite o segundo valor: "))
+    #             total = valor1 * valor2
+    #             print(f"O valor de {valor1} * {valor2} = {total}")
+    #             os.system("pause")
+    #             os.system("cls")
 
-    print(8*"=-","Cadastro Concluido","=-"*8)
+    #         elif op == "DIVISAO" or op == "4":
+    #             valor1 = float(input("Digite o primeiro valor: "))
+    #             valor2 = float(input("Digite o segundo valor: "))
+    #             total = valor1 / valor2
+    #             print(f"O valor de {valor1} / {valor2} = {total}")
+    #             os.system("pause")
+    #             os.system("cls")
 
-    if opcao == 
-    elif opcao == "2":
-        os.system("cls")
-        u1.relatorio()
-    elif opcao == "3":
-        os.system("cls")
-        u1.calculadora()
-    elif opcao == "4":
-        os.system("cls")
-        u1.lanchonete()
-    else:
-        print("Opção não existente!!!")
+    #         elif op == "RAIZ QUADRADA" or op == "5":
+    #             valor1 = float(input("Digite o primeiro valor: "))
+    #             total = valor1 ** (0.5)
+    #             print(total)
+    #             os.system("pause")
+    #             os.system("cls")
+                
+    #         else:
+    #             print("*",14*"=-","*")
+    #             print(5*" ","Opção Não Existente"," "*5)
+    #             print("*",14*"=-","*")
+    
